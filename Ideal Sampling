@@ -1,6 +1,59 @@
 Write a simple Ideal sampling program using Python.
 Aim
+To demonstrate the process of ideal sampling of a continuous-time signal and to analyze the effect of sampling rate on the reconstructed signal.
+
 Tools required
+Python programming environment (e.g., Jupyter Notebook, Google Colab, or any IDE)
+Libraries: numpy, matplotlib
+
 Program
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameters
+sampling_rate = 100  # Sampling rate in Hz
+frequency = 5  # Frequency of the sine wave in Hz
+duration = 1  # Duration of the signal in seconds
+
+# Time array for the continuous signal
+t_continuous = np.linspace(0, duration, 1000, endpoint=False)
+
+# Generate the continuous sine wave
+continuous_signal = np.sin(2 * np.pi * frequency * t_continuous)
+
+# Time array for the sampled signal
+t_sampled = np.arange(0, duration, 1/sampling_rate)
+
+# Sample the continuous signal at the sampling rate
+sampled_signal = np.sin(2 * np.pi * frequency * t_sampled)
+
+# Plot the continuous signal and the sampled signal
+plt.figure(figsize=(10, 6))
+
+# Plot the continuous signal
+plt.subplot(2, 1, 1)
+plt.plot(t_continuous, continuous_signal, label='Continuous Signal')
+plt.title('Continuous Sine Wave')
+plt.xlabel('Time [s]')
+plt.ylabel('Amplitude')
+plt.legend()
+
+# Plot the sampled signal
+plt.subplot(2, 1, 2)
+plt.stem(t_sampled, sampled_signal, linefmt='b-', markerfmt='bo', basefmt=' ', label='Sampled Signal')
+plt.title('Sampled Sine Wave')
+plt.xlabel('Time [s]')
+plt.ylabel('Amplitude')
+plt.legend()
+
+plt.tight_layout()
+plt.show()
+
 Output waveform
+
+
+
 Results
+The experiment demonstrates the importance of the Nyquist-Shannon sampling theorem. To avoid aliasing and accurately reconstruct a signal, the sampling rate must be at least twice the highest frequency present in the signal.
+
+
