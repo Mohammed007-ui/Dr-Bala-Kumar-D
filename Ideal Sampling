@@ -1,6 +1,43 @@
 Write a simple Ideal sampling program using Python.
+
 Aim
+To implement an Ideal Sampling program using Python and visualize the sampled waveform.
+
 Tools required
+Python
+NumPy
+Matplotlib
+
 Program
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Continuous signal parameters
+fs = 1000  # Sampling frequency for continuous signal (high enough for smooth curve)
+t_cont = np.arange(0, 1, 1/fs)  # Continuous time base (1 second)
+f_signal = 5  # Frequency of the original signal
+x_cont = np.sin(2 * np.pi * f_signal * t_cont)  # Continuous sine wave
+
+# Sampling parameters
+fs_sampled = 20  # Sampling frequency (must be > 2*f_signal as per Nyquist)
+t_sampled = np.arange(0, 1, 1/fs_sampled)  # Sampled time base
+x_sampled = np.sin(2 * np.pi * f_signal * t_sampled)  # Sampled sine wave
+
+# Plotting
+plt.figure(figsize=(10, 5))
+plt.plot(t_cont, x_cont, 'b', label="Original Continuous Signal")
+plt.stem(t_sampled, x_sampled, 'r', markerfmt='ro', basefmt=" ", linefmt='r-', label="Sampled Signal")
+plt.xlabel("Time (s)")
+plt.ylabel("Amplitude")
+plt.title("Ideal Sampling of a Sine Wave")
+plt.legend()
+plt.grid()
+plt.show()
+
 Output waveform
+The output will be a plot where:
+
+The blue line represents the original continuous signal.
+The red stem points represent the sampled signal at discrete time intervals.
+
 Results
