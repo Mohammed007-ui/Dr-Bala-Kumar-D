@@ -47,13 +47,13 @@ If the sampling frequency is too low (aliasing occurs), distortion will be obser
 Results Table
 Here is a **Results Table** summarizing the observations of the Ideal Sampling program:  
 
-| **Parameter**                            | **Value**                        | **Observation**                                      |
-|------------------------------------------|----------------------------------|------------------------------------------------------|
-| **Original Signal Frequency (f_signal)** | 5 Hz                             | The frequency of the continuous sine wave.           |
-| **Continuous Sampling Frequency (fs)**   | 1000 Hz                          | Used to generate a smooth continuous signal.         |
-| **Sampling Frequency (fs_sampled)**      | 20 Hz                            | The rate at which the signal is sampled.             |
-| **Nyquist Rate (2 × f_signal)**          | 10 Hz                            | Minimum sampling rate required to avoid aliasing.    |
-| **Sampling Condition**                   | \( fs_{sampled} > 2f_{signal} \)| No aliasing, ideal sampling achieved.                 |
-| **Observation in Plot**  | Smooth sampled points align with original waveform | The sampled points correctly follow the sine wave. |
+| **Parameter**                            | **Value**                          | **Observation**                                      |
+|------------------------------------------|------------------------------------|------------------------------------------------------|
+| **Original Signal Frequency (f_signal)** | 5 Hz                               | The frequency of the continuous sine wave.           |
+| **Continuous Sampling Frequency (fs)**   | 1000 Hz                            | Used to generate a smooth continuous signal.         |
+| **Sampling Frequency (fs_sampled)**      | 20 Hz                              | The rate at which the signal is sampled.             |
+| **Nyquist Rate (2 × f_signal)**          | 10 Hz                              | Minimum sampling rate required to avoid aliasing.    |
+| **Sampling Condition**                   | \( fs_{sampled} > 2f_{signal} \)   | No aliasing, ideal sampling achieved.                |
+| **Observation in Plot**| Smooth sampled points align with original waveform   | The sampled points correctly follow the sine wave.   |
 
 This table provides a structured summary of the results obtained from the Ideal Sampling program. Would you like any modifications, such as different sampling rates to observe aliasing effects.
