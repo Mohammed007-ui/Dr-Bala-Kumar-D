@@ -1,14 +1,15 @@
 Write a simple python program to modulate and demodulate signal using Amplitude Shift Keying method and show the the following output waveform, 1. Message signal, 2. Clock signal, 3. Modulated output, 4. Demodulated.
-###_Aim
+
+Aim
 To implement an Ideal Sampling program using Python and visualize the sampled waveform.
 
-###_Tools Required
+Tools Required
 
 Python
 NumPy
 Matplotlib
 
-###_Program
+Program
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -34,16 +35,16 @@ plt.legend()
 plt.grid()
 plt.show()
 
-###_Output waveform
+Output waveform
 ![Image](https://github.com/user-attachments/assets/3bd818b0-6396-4196-93b9-de62d6d0a580)
 
-###_Results.
+Results.
 
 The program successfully simulates Ideal Sampling of a sinusoidal signal.
 If the sampling frequency is greater than twice the signal frequency (Nyquist rate), the sampled signal accurately represents the original.
 If the sampling frequency is too low (aliasing occurs), distortion will be observed.
 
-###_Results Table
+Results Table
 Here is a **Results Table** summarizing the observations of the Ideal Sampling program:  
 
 | **Parameter**                            | **Value**                        | **Observation**                                      |
