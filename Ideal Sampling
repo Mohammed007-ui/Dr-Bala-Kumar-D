@@ -1,6 +1,52 @@
 Write a simple Ideal sampling program using Python.
 Aim
+
+To implement an Ideal Sampling technique using Python and observe the sampled waveform of a continuous-time signal.
+
 Tools required
+
+Python 3.x
+NumPy
+Matplotlib
+
 Program
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Continuous signal (original)
+fs = 1000  # High sampling rate for the continuous signal
+t = np.linspace(0, 1, fs)  # Time vector from 0 to 1 sec
+f = 5  # Frequency of the signal in Hz
+x = np.sin(2 * np.pi * f * t)  # Original continuous signal
+
+# Ideal Sampling
+fs_sampled = 20  # Sampling frequency (sampling rate)
+t_sampled = np.arange(0, 1, 1/fs_sampled)  # Sampled time instances
+x_sampled = np.sin(2 * np.pi * f * t_sampled)  # Sampled values
+
+# Plotting the signals
+plt.figure(figsize=(10, 5))
+
+# Plot continuous signal
+plt.plot(t, x, label="Original Signal (Continuous)", linestyle="dashed")
+
+# Plot sampled signal
+plt.stem(t_sampled, x_sampled, linefmt='r', markerfmt='ro', basefmt='k', label="Sampled Signal")
+
+plt.xlabel("Time (s)")
+plt.ylabel("Amplitude")
+plt.title("Ideal Sampling of a Sinusoidal Signal")
+plt.legend()
+plt.grid()
+plt.show()
+
 Output waveform
+
+![Image](https://github.com/user-attachments/assets/fe97db54-96ac-421b-87c8-47de3a0bfd94)
+
 Results
+
+The ideal sampling process was successfully implemented. The original continuous-time signal was sampled at a lower rate, and the sampled values were plotted as discrete points. The results confirm the theoretical concept of sampling.
+
+
