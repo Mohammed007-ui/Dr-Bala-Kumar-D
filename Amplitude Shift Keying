@@ -1,7 +1,58 @@
 Write a simple python program to modulate and demodulate signal using Amplitude Shift Keying method and show the the following output waveform, 1. Message signal, 2. Clock signal, 3. Modulated output, 4. Demodulated.
-Aim
-Tools Required
-Program
-Output waveform
-Results.
-Results Table
+###_Aim
+To implement an Ideal Sampling program using Python and visualize the sampled waveform.
+
+###_Tools Required
+
+Python
+NumPy
+Matplotlib
+
+###_Program
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Continuous signal parameters
+fs = 1000  # Sampling frequency for continuous signal (high enough for smooth curve)
+t_cont = np.arange(0, 1, 1/fs)  # Continuous time base (1 second)
+f_signal = 5  # Frequency of the original signal
+x_cont = np.sin(2 * np.pi * f_signal * t_cont)  # Continuous sine wave
+
+# Sampling parameters
+fs_sampled = 20  # Sampling frequency (must be > 2*f_signal as per Nyquist)
+t_sampled = np.arange(0, 1, 1/fs_sampled)  # Sampled time base
+x_sampled = np.sin(2 * np.pi * f_signal * t_sampled)  # Sampled sine wave
+
+# Plotting
+plt.figure(figsize=(10, 5))
+plt.plot(t_cont, x_cont, 'b', label="Original Continuous Signal")
+plt.stem(t_sampled, x_sampled, 'r', markerfmt='ro', basefmt=" ", linefmt='r-', label="Sampled Signal")
+plt.xlabel("Time (s)")
+plt.ylabel("Amplitude")
+plt.title("Ideal Sampling of a Sine Wave")
+plt.legend()
+plt.grid()
+plt.show()
+
+###_Output waveform
+![Image](https://github.com/user-attachments/assets/3bd818b0-6396-4196-93b9-de62d6d0a580)
+
+###_Results.
+
+The program successfully simulates Ideal Sampling of a sinusoidal signal.
+If the sampling frequency is greater than twice the signal frequency (Nyquist rate), the sampled signal accurately represents the original.
+If the sampling frequency is too low (aliasing occurs), distortion will be observed.
+
+###_Results Table
+Here is a **Results Table** summarizing the observations of the Ideal Sampling program:  
+
+| **Parameter**                            | **Value**                        | **Observation**                                      |
+|------------------------------------------|----------------------------------|------------------------------------------------------|
+| **Original Signal Frequency (f_signal)** | 5 Hz                             | The frequency of the continuous sine wave.           |
+| **Continuous Sampling Frequency (fs)**   | 1000 Hz                          | Used to generate a smooth continuous signal.         |
+| **Sampling Frequency (fs_sampled)**      | 20 Hz                            | The rate at which the signal is sampled.             |
+| **Nyquist Rate (2 × f_signal)**          | 10 Hz                            | Minimum sampling rate required to avoid aliasing.    |
+| **Sampling Condition**                   | \( fs_{sampled} > 2f_{signal} \)| No aliasing, ideal sampling achieved.                 |
+| **Observation in Plot**  | Smooth sampled points align with original waveform | The sampled points correctly follow the sine wave. |
+
+This table provides a structured summary of the results obtained from the Ideal Sampling program. Would you like any modifications, such as different sampling rates to observe aliasing effects.
